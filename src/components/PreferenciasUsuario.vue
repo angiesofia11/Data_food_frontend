@@ -1,12 +1,12 @@
 <template>
   <div>
-        <b-col cols="8">
+        <b-col cols="12">
           <div>
-              <div class="mt-4 ubicacionFormulario">
+              <div class="mt-4">
                 <b-form-group label-for="tags-component-select">
                   <b-form-tags
                     id="tags-component-select"
-                    v-model="value"
+                    v-model="preferencias"
                     size="lg"
                     class="mb-2"
                     add-on-change
@@ -67,7 +67,7 @@ export default {
   data() {
     return {
       text: "",
-      selected: null,
+      preferencias: [],
       options: [
         "Afgano",
         "Africano",
@@ -192,8 +192,5 @@ export default {
 .ubicacionBotones {
   text-align: right;
   margin-right: 9px;
-}
-.ubicacionFormulario {
-  width: 630px;
 }
 </style>

@@ -301,10 +301,10 @@ export default {
       value: "",
       nombreUser: "",
       apellidoUser: "",
-      numIDUser: 0,
+      numIDUser: null,
       direccionUser: "",
       barrioUser: "",
-      celularUser: 0,
+      celularUser: "",
       correoUser: "",
       contrasenaUser: "",
       contrasenaConfirmacionUser: "",
@@ -375,7 +375,7 @@ export default {
           correo: this.correoUser,
           pws: this.contrasenaUser,
           aceptacion_terminos: this.status,
-          //preferencias: this.selected,
+          preferencias: this.preferencias,
         })
         .then((response) => {
           this.$router.push("/InicioSesion");
@@ -438,5 +438,11 @@ export default {
 .text {
   color: #41c5d3;
   font-size: 12px;
+}
+.formControl.invalida input {
+  border-color: #ff4b4b;
+}
+.textoInvalido {
+  color: #d50000;
 }
 </style>
