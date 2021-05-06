@@ -64,13 +64,12 @@
             <ul class="list-unstyled">
               <b-media tag="li" v-for="(item, i) in listaRestaurantes" :key="i">
                 <template #aside>
-                  <b-img
-                    blank
-                    blank-color="#abc"
-                    width="150"
-                    alt="placeholder"
+                  <v-img
                     class="mt-3"
-                  ></b-img>
+                    width="150"
+                    height="150"
+                    src="@/assets/datafood_imagen_home_app.jpg"
+                  ></v-img>
                 </template>
                 <h5 class="mt-3 mb-1">Nombre {{ item.nombre }}</h5>
                 <p class="mb-0">

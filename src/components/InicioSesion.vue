@@ -5,7 +5,7 @@
       <b-col cols="5">
         <v-card class="pa-5 mx-auto" min-width="400">
           <div>
-            <b-tabs content-class="mt-3">
+            <b-tabs content-class="mt-3" align="center">
               <b-tab title="Usuario" active>
                 <form @submit.prevent="submit">
                   <div class="my-5">
@@ -131,6 +131,17 @@
             </b-tabs>
           </div>
         </v-card>
+        <v-alert
+          class="mt-7 text-center"
+          v-if="alertaLogin === true"
+          border="top"
+          color="#FF4B4B"
+          colored-border
+          type="error"
+          elevation="2"
+        >
+          Inicio de sesión no exitoso. Por favor intentelo de nuevo.
+        </v-alert>
       </b-col>
       <b-col></b-col>
     </b-row>
@@ -142,10 +153,11 @@ import axios from "axios";
 export default {
   data() {
     return {
+      alertaLogin: false,
       emailLogin: "",
       passwordLogin: "",
-      emailLoginEmpresa:"",
-      passwordLoginEmpresa:"",
+      emailLoginEmpresa: "",
+      passwordLoginEmpresa: "",
     };
   },
   methods: {
@@ -157,14 +169,18 @@ export default {
       axios
         .post("https://datafood.herokuapp.com/api/usuario/login", json)
         .then((response) => {
+          this.alertaLogin = false;
           const token = response.statusText;
           localStorage.setItem("jwt", token);
           console.log(response);
           this.$router.push("./Principal");
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          this.alertaLogin = true;
+          console.log(error);
+        });
     },
-    loginUserEmpresa(){
+    loginUserEmpresa() {
       let json = {
         correo: this.emailLoginEmpresa,
         pws: this.passwordLoginEmpresa,
@@ -172,13 +188,17 @@ export default {
       axios
         .post("https://datafood.herokuapp.com/api/empresa/login", json)
         .then((response) => {
+          this.alertaLogin = false;
           const token = response.statusText;
           localStorage.setItem("jwt", token);
           console.log(response);
           this.$router.push("./Principal");
         })
-        .catch((error) => console.log(error));
-    }
+        .catch((error) => {
+          this.alertaLogin = true;
+          console.log(error);
+        });
+    },
   },
 };
 </script>
