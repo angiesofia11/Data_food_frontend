@@ -236,7 +236,7 @@
                           name="facturacionEmpresa"
                           v-model="value"
                           :locale="locale"
-                          min="0"
+                          min="5"
                           max="1000"
                           step="0.125"
                           placeholder="--"

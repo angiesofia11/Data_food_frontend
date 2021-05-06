@@ -86,22 +86,10 @@
             plain
             x-large
             to="/Lugares"
-            ><v-icon class="mx-5">mdi-align-vertical-bottom</v-icon>LUGARES</v-btn
+            ><v-icon class="mx-5">mdi-align-vertical-bottom</v-icon
+            >LUGARES</v-btn
           >
         </v-col>
-        <!-- <v-col cols="6">
-          <v-btn
-            class="mt-4"
-            color="#003458"
-            block
-            elevation="4"
-            plain
-            x-large
-            to="/Domicilios"
-            ><v-icon class="mx-5">mdi-chart-timeline-variant</v-icon>ESTADISTICAS
-            DE DOMICILIOS</v-btn
-          >
-        </v-col> -->
         <v-col cols="6">
           <v-btn
             class="mt-4"
@@ -111,7 +99,8 @@
             plain
             x-large
             to="/Emociones"
-            ><v-icon class="mx-5">mdi-chat-processing-outline</v-icon>COMPORTAMIENTOS DE USUARIO</v-btn
+            ><v-icon class="mx-5">mdi-chat-processing-outline</v-icon
+            >COMPORTAMIENTOS DE USUARIO</v-btn
           >
         </v-col>
       </v-row>

@@ -1,6 +1,16 @@
 <template>
   <b-container>
     <BarraNavegacion />
+    <v-btn
+      class="mt-5 mx-7"
+      color="#FF4B4B"
+      elevation="2"
+      fab
+      icon
+      small
+      to="/Estadisticas"
+      ><v-icon>mdi-arrow-left</v-icon></v-btn
+    >
     <b-row>
       <b-col>
         <v-card elevation="2">
@@ -20,18 +30,18 @@
       </b-col>
       <b-col>
         <v-card elevation="2">
-        <a
-          href="https://plotly.com/~Lugares/1/?share_key=4woaR8a2alss7aBZvajrzb"
-          target="_blank"
-          title="Plot 1"
-          style="display: block; text-align: center"
-          ><img
-            src="https://plotly.com/~Lugares/1.png?share_key=4woaR8a2alss7aBZvajrzb"
-            alt="Plot 1"
-            style="max-width: 100%; width: 600px"
-            width="600"
-            onerror="this.onerror=null;this.src='https://plotly.com/404.png';"
-        /></a>
+          <a
+            href="https://plotly.com/~Lugares/1/?share_key=4woaR8a2alss7aBZvajrzb"
+            target="_blank"
+            title="Plot 1"
+            style="display: block; text-align: center"
+            ><img
+              src="https://plotly.com/~Lugares/1.png?share_key=4woaR8a2alss7aBZvajrzb"
+              alt="Plot 1"
+              style="max-width: 100%; width: 600px"
+              width="600"
+              onerror="this.onerror=null;this.src='https://plotly.com/404.png';"
+          /></a>
         </v-card>
       </b-col>
     </b-row>
