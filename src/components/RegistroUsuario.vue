@@ -23,20 +23,42 @@
                       <b-col sm="2">
                         <v-icon large color="#41C5D3">mdi-account</v-icon>
                       </b-col>
-                      <b-col sm="4">
+                      <b-col
+                        sm="4"
+                        class="formControl"
+                        :class="{ invalida: validacionNombre === 'invalida' }"
+                      >
                         <b-form-input
                           name="nombreUser"
-                          v-model="nombreUser"
+                          v-model.trim="nombreUser"
                           placeholder="Nombres*"
+                          @blur="validarNombre"
                         ></b-form-input>
+                        <p
+                          class="textoInvalido"
+                          v-if="validacionNombre === 'invalida'"
+                        >
+                          Ingrese Nombres
+                        </p>
                       </b-col>
-                      <b-col sm="6">
+                      <b-col
+                        sm="6"
+                        class="formControl"
+                        :class="{ invalida: validacionApellido === 'invalida' }"
+                      >
                         <b-form-input
                           name="apellidoUser"
-                          v-model="apellidoUser"
+                          v-model.trim="apellidoUser"
                           :state="null"
                           placeholder="Apellidos*"
+                          @blur="validarApellido"
                         ></b-form-input>
+                        <p
+                          class="textoInvalido"
+                          v-if="validacionApellido === 'invalida'"
+                        >
+                          Ingrese Apellidos
+                        </p>
                       </b-col>
                     </b-row>
                     <b-row class="my-3">
@@ -132,43 +154,91 @@
                       <b-col sm="2">
                         <v-icon large color="#41C5D3">mdi-cellphone</v-icon>
                       </b-col>
-                      <b-col sm="4">
+                      <b-col
+                        sm="4"
+                        class="formControl"
+                        :class="{ invalida: validacionCelular === 'invalida' }"
+                      >
                         <b-form-input
                           name="celularUser"
-                          v-model="celularUser"
+                          v-model.trim="celularUser"
                           placeholder="Número de celular*"
+                          @blur="validarCelular"
                         ></b-form-input>
+                        <p
+                          class="textoInvalido"
+                          v-if="validacionCelular === 'invalida'"
+                        >
+                          Ingrese Celular
+                        </p>
                       </b-col>
-                      <b-col sm="6">
+                      <b-col
+                        sm="6"
+                        class="formControl"
+                        :class="{ invalida: validacionCorreo === 'invalida' }"
+                      >
                         <b-form-input
                           name="correoUser"
-                          v-model="correoUser"
+                          v-model.trim="correoUser"
                           type="email"
                           placeholder="Correo electronico*"
+                          @blur="validarCorreo"
                         ></b-form-input>
+                        <p
+                          class="textoInvalido"
+                          v-if="validacionCorreo === 'invalida'"
+                        >
+                          Ingrese Correo
+                        </p>
                       </b-col>
                     </b-row>
                     <b-row class="my-3">
                       <b-col sm="2">
                         <v-icon large color="#41C5D3">mdi-lock-outline</v-icon>
                       </b-col>
-                      <b-col sm="4">
+                      <b-col
+                        sm="4"
+                        class="formControl"
+                        :class="{
+                          invalida: validacionContrasena === 'invalida',
+                        }"
+                      >
                         <b-form-input
                           type="password"
                           name="contrasenaUser"
-                          v-model="contrasenaUser"
+                          v-model.trim="contrasenaUser"
                           aria-describedby="password-help-block"
                           placeholder="Contraseña*"
+                          @blur="validarContrasena"
                         ></b-form-input>
+                        <p
+                          class="textoInvalido"
+                          v-if="validacionContrasena === 'invalida'"
+                        >
+                          Ingrese Contraseña
+                        </p>
                       </b-col>
-                      <b-col sm="6">
+                      <b-col
+                        sm="6"
+                        class="formControl"
+                        :class="{
+                          invalida: validacionConfirmacion === 'invalida',
+                        }"
+                      >
                         <b-form-input
                           type="password"
                           name="contrasenaConfirmacionUser"
-                          v-model="contrasenaConfirmacionUser"
+                          v-model.trim="contrasenaConfirmacionUser"
                           aria-describedby="password-help-block"
                           placeholder="Confirmar contraseña*"
+                          @blur="validarConfirmacion"
                         ></b-form-input>
+                        <p
+                          class="textoInvalido"
+                          v-if="validacionConfirmacion === 'invalida'"
+                        >
+                          Ingrese de nuevo la Contraseña
+                        </p>
                       </b-col>
                     </b-row>
                     <b-row class="my-3">
@@ -239,14 +309,20 @@ export default {
       contrasenaUser: "",
       contrasenaConfirmacionUser: "",
       status: "not_accepted",
+      validacionNombre: "pendiente",
+      validacionApellido: "pendiente",
+      validacionCelular: "pendiente",
+      validacionCorreo: "pendiente",
+      validacionContrasena: "pendiente",
+      validacionConfirmacion: "pendiente",
       selectedCountry: null,
       optionsCountry: [
-        { value: null, text: "País*" },
+        { value: null, text: "País" },
         { value: "Colombia", text: "Colombia" },
       ],
       selectedCity: null,
       optionsCity: [
-        { value: null, text: "Ciudad*" },
+        { value: null, text: "Ciudad" },
         { value: "Barranquilla", text: "Barranquilla" },
         { value: "Medellín", text: "Medellín" },
         { value: "Bogotá", text: "Bogotá" },
@@ -306,6 +382,48 @@ export default {
           console.log(response);
         })
         .catch((error) => console.log(error));
+    },
+    validarNombre() {
+      if (this.nombreUser === "") {
+        this.validacionNombre = "invalida";
+      } else {
+        this.validacionNombre = "valida";
+      }
+    },
+    validarApellido() {
+      if (this.apellidoUser === "") {
+        this.validacionApellido = "invalida";
+      } else {
+        this.validacionApellido = "valida";
+      }
+    },
+    validarCelular() {
+      if (this.celularUser === "") {
+        this.validacionCelular = "invalida";
+      } else {
+        this.validacionCelular = "valida";
+      }
+    },
+    validarCorreo() {
+      if (this.correoUser === "") {
+        this.validacionCorreo = "invalida";
+      } else {
+        this.validacionCorreo = "valida";
+      }
+    },
+    validarContrasena() {
+      if (this.contrasenaUser === "") {
+        this.validacionContrasena = "invalida";
+      } else {
+        this.validacionContrasena = "valida";
+      }
+    },
+    validarConfirmacion() {
+      if (this.contrasenaConfirmacionUser === "") {
+        this.validacionConfirmacion = "invalida";
+      } else {
+        this.validacionConfirmacion = "valida";
+      }
     },
   },
 };
