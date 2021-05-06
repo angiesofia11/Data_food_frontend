@@ -1,5 +1,10 @@
 <template>
   <v-app-bar app color="#FF4B4B" dense dark>
+    <router-link to="/Principal">
+      <v-btn target="_blank" text>
+        <v-icon>mdi-store</v-icon>
+      </v-btn>
+    </router-link>
     <router-link to="/">
       <v-btn target="_blank" text>
         <span class="mr-2">DATAFOOD</span>
@@ -15,11 +20,11 @@
   </v-app-bar>
 </template>
 <script>
- import BotonIniciarSesion from "./BotonIniciarSesion";
+import BotonIniciarSesion from "./BotonIniciarSesion";
 import BotonPerfil from "./BotonPerfil";
 export default {
   components: {
-     BotonIniciarSesion,
+    BotonIniciarSesion,
     BotonPerfil,
   },
   methods: {
