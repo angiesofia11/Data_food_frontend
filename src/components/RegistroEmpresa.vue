@@ -325,6 +325,17 @@
               >
             </div>
           </div>
+          <v-alert
+          class="mt-7 text-center"
+          v-if="alertaRegistroEmpresa === true"
+          border="top"
+          color="#FF4B4B"
+          colored-border
+          type="error"
+          elevation="2"
+        >
+          Registro no exitoso. Por favor intentelo de nuevo
+        </v-alert>
         </b-col>
         <b-col></b-col>
       </b-row>
@@ -344,7 +355,7 @@ export default {
       apellidoRepLegal: "",
       direccionRepLegal: "",
       fotoEmpresa: "",
-      nombreEmpresa:"",
+      nombreEmpresa: "",
       nitEmpresa: null,
       direccionEmpresa: "",
       barrioEmpresa: "",
@@ -360,6 +371,7 @@ export default {
       instagramEmpresa: "",
       facebookEmpresa: "",
       twitterEmpresa: "",
+      alertaRegistroEmpresa: false,
       selected: null,
       selectedPais: null,
       options: [
@@ -402,10 +414,14 @@ export default {
           // selectedPais: this.selectedPais,
         })
         .then((response) => {
+          this.alertaRegistroEmpresa = false
           this.$router.push("/ServiciosEmpresa");
           console.log(response);
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          this.alertaRegistroEmpresa = true
+          console.log(error);
+        });
     },
   },
 };
