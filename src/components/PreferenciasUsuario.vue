@@ -34,7 +34,7 @@
                             @remove="removeTag(tag)"
                             :title="tag"
                             :disabled="disabled"
-                            variant="danger"
+                            variant="primary"
                             >{{ tag }}</b-form-tag
                           >
                         </li>

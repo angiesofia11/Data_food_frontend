@@ -100,7 +100,7 @@
                             id="date-usuario"
                             v-model="value"
                             type="text"
-                            placeholder="YYYY-MM-DD"
+                            placeholder="Fecha de nacimiento YYYY-MM-DD"
                             autocomplete="off"
                           ></b-form-input>
                           <b-input-group-append>
@@ -280,6 +280,17 @@
               >
             </div>
           </div>
+          <v-alert
+          class="mt-7 text-center"
+          v-if="alertaRegistro === true"
+          border="top"
+          color="#FF4B4B"
+          colored-border
+          type="error"
+          elevation="2"
+        >
+          Registro no exitoso. Por favor intentelo de nuevo
+        </v-alert>
         </b-col>
         <b-col></b-col>
       </b-row>
@@ -315,6 +326,7 @@ export default {
       validacionCorreo: "pendiente",
       validacionContrasena: "pendiente",
       validacionConfirmacion: "pendiente",
+      alertaRegistro: false,
       selectedCountry: null,
       optionsCountry: [
         { value: null, text: "País" },
@@ -378,10 +390,14 @@ export default {
           preferencias: this.preferencias,
         })
         .then((response) => {
+          this.alertaRegistro = false;
           this.$router.push("/InicioSesion");
           console.log(response);
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          this.alertaRegistro = true;
+          console.log(error);
+        });
     },
     validarNombre() {
       if (this.nombreUser === "") {
@@ -443,6 +459,6 @@ export default {
   border-color: #ff4b4b;
 }
 .textoInvalido {
-  color: #d50000;
+  color: #ff4b4b;
 }
 </style>

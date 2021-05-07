@@ -8,12 +8,12 @@
             <b-tabs content-class="mt-3" align="center">
               <b-tab title="Usuario" active>
                 <form @submit.prevent="submit">
-                  <div class="my-5">
-                    <b-button block variant="outline-secondary"
-                      >Inicia sesión con Google</b-button
+                  <div class="mt-6">
+                    <v-btn class="my-3" block elevation="1" plain
+                      >Inicia sesión con Google</v-btn
                     >
-                    <b-button block variant="outline-secondary"
-                      >Inicia sesión con Facebook</b-button
+                    <v-btn block elevation="1" plain
+                      >Inicia sesión con Facebook</v-btn
                     >
                   </div>
                   <div class="linea mt-4">
@@ -69,12 +69,12 @@
               >
               <b-tab title="Empresa">
                 <form @submit.prevent="submit">
-                  <div class="my-5">
-                    <b-button block variant="outline-secondary"
-                      >Inicia sesión con Google</b-button
+                  <div class="mt-6">
+                    <v-btn class="my-3" block elevation="1" plain
+                      >Inicia sesión con Google</v-btn
                     >
-                    <b-button block variant="outline-secondary"
-                      >Inicia sesión con Facebook</b-button
+                    <v-btn block elevation="1" plain
+                      >Inicia sesión con Facebooke</v-btn
                     >
                   </div>
                   <div class="linea mt-4">
@@ -140,7 +140,7 @@
           type="error"
           elevation="2"
         >
-          Inicio de sesión no exitoso. Por favor intentelo de nuevo.
+          Inicio de sesión no exitoso. Por favor intentelo de nuevo
         </v-alert>
       </b-col>
       <b-col></b-col>
@@ -212,5 +212,8 @@ a:hover {
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+.v-application a {
+  color: #41c5d3;
 }
 </style>
