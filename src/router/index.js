@@ -19,6 +19,7 @@ import OtrosActores from '@/components/Reportes/OtrosActores'
 import Google from '@/components/Reportes/Google'
 import Lugares from '@/components/Reportes/Lugares'
 import Emociones from '@/components/Reportes/Emociones'
+import CamaraComercio from '@/components/Reportes/CamaraComercio'
 import PerfilUser from '@/components/PerfilUser'
 
 Vue.use(Router)
@@ -122,6 +123,11 @@ const router = new Router({
       path: '/Emociones',
       name: 'Emociones',
       component: Emociones
+    },
+    {
+      path: '/CamaraComercio',
+      name: 'CamaraComercio',
+      component: CamaraComercio
     },
     {
       path: '/Perfil',

@@ -103,6 +103,19 @@
             >COMPORTAMIENTOS DE USUARIO</v-btn
           >
         </v-col>
+        <v-col cols="12">
+          <v-btn
+            class="mt-4"
+            color="#003458"
+            block
+            elevation="4"
+            plain
+            x-large
+            to="/CamaraComercio"
+            ><v-icon class="mx-5">mdi-finance</v-icon>CAMARA DE
+            COMERCIO BARRANQUILLA - COMPARACIÓN CON DATOS DE INTERNET</v-btn
+          >
+        </v-col>
       </v-row>
     </v-container>
   </div>

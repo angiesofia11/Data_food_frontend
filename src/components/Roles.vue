@@ -30,7 +30,7 @@
           </div>
         </b-col>
         <b-col cols="8">
-          <div class="shadow-sm p-3 mb-5 bg-white rounded">
+          <div class="shadow-sm p-3 mb-5 bg-white rounded text-center">
             <h6>Vincula las cuentas de tus trabajadores.</h6>
             <b-row class="my-3">
               <b-col sm="6">
